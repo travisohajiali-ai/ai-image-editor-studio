@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Image Editor Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">✦</div>
+          <div>
+            <div class="brand-name">AI Image Editor</div>
+            <div class="brand-subtitle">Studio</div>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <label class="upload-btn">
+            <input id="fileInput" type="file" accept="image/*" />
+            Upload Image
+          </label>
+          <button id="openGalleryBtn" class="secondary-btn">Open sample</button>
+        </div>
+
+        <div class="panel-section">
+          <h3>Quick Tools</h3>
+          <div class="tool-grid">
+            <button data-tool="crop">Crop</button>
+            <button data-tool="reset">Reset</button>
+            <button data-tool="upscale">Upscale</button>
+            <button data-tool="background">Remove BG</button>
+            <button data-tool="enhance">Enhance</button>
+            <button data-tool="prompt">AI Fill</button>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h3>Presets</h3>
+          <div class="preset-list">
+            <button class="preset-btn" data-preset="vivid">Vivid</button>
+            <button class="preset-btn" data-preset="cinematic">Cinematic</button>
+            <button class="preset-btn" data-preset="mono">Mono</button>
+            <button class="preset-btn" data-preset="warm">Warm</button>
+            <button class="preset-btn" data-preset="cool">Cool</button>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h3>AI Prompt</h3>
+          <textarea id="promptInput" rows="4" placeholder="Describe the enhancement you want...">Portrait retouch, natural skin smoothing, cinematic color grade</textarea>
+          <button id="generateAiBtn" class="primary-btn">Generate AI Edit</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <div class="topbar">
+          <div class="title-group">
+            <span class="status-dot"></span>
+            <div>
+              <div class="title">Creative Workspace</div>
+              <div class="subtitle">AI-powered editing and export</div>
+            </div>
+          </div>
+          <div class="top-actions">
+            <button id="undoBtn" class="ghost-btn">Undo</button>
+            <button id="exportBtn" class="primary-btn">Export PNG</button>
+          </div>
+        </div>
+
+        <div class="canvas-panel">
+          <div class="canvas-stage">
+            <canvas id="editorCanvas" width="1200" height="700"></canvas>
+            <div id="emptyState" class="empty-state">
+              <div class="empty-icon">⬆</div>
+              <h2>Upload an image to begin</h2>
+              <p>Use the upload button or open a sample image and start editing.</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="controls-panel">
+          <div class="controls-header">
+            <h3>Adjustments</h3>
+            <button id="resetControlsBtn" class="ghost-btn">Reset controls</button>
+          </div>
+
+          <div class="control-grid">
+            <label>
+              <span>Brightness</span>
+              <input id="brightness" type="range" min="0" max="200" value="100" />
+            </label>
+            <label>
+              <span>Contrast</span>
+              <input id="contrast" type="range" min="0" max="200" value="100" />
+            </label>
+            <label>
+              <span>Saturation</span>
+              <input id="saturation" type="range" min="0" max="200" value="100" />
+            </label>
+            <label>
+              <span>Exposure</span>
+              <input id="exposure" type="range" min="50" max="200" value="100" />
+            </label>
+            <label>
+              <span>Warmth</span>
+              <input id="temperature" type="range" min="-100" max="100" value="0" />
+            </label>
+            <label>
+              <span>Blur</span>
+              <input id="blur" type="range" min="0" max="10" value="0" />
+            </label>
+            <label>
+              <span>Sepia</span>
+              <input id="sepia" type="range" min="0" max="100" value="0" />
+            </label>
+            <label>
+              <span>Grayscale</span>
+              <input id="grayscale" type="range" min="0" max="100" value="0" />
+            </label>
+            <label>
+              <span>Hue</span>
+              <input id="hue" type="range" min="0" max="360" value="0" />
+            </label>
+          </div>
+        </section>
+
+        <section class="preview-panel">
+          <div class="preview-card">
+            <div class="preview-header">
+              <h3>Before / After</h3>
+              <div class="live-toggle">
+                <span>Live</span>
+                <input id="liveToggle" type="checkbox" checked />
+              </div>
+            </div>
+            <div class="preview-grid">
+              <div class="preview-box">
+                <label>Original</label>
+                <canvas id="beforeCanvas" width="400" height="220"></canvas>
+              </div>
+              <div class="preview-box">
+                <label>Edited</label>
+                <canvas id="afterCanvas" width="400" height="220"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

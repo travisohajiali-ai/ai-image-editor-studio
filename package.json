@@ -1,56 +1,21 @@
 {
   "name": "ai-image-editor-studio",
   "version": "1.0.0",
-  "description": "Advanced AI-powered image editing studio with Electron",
-  "main": "dist/main.js",
-  "homepage": "./",
-  "author": "AI Developer",
-  "license": "MIT",
+  "description": "AI image editor studio powered by Electron",
+  "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "concurrently \"npm run electron-dev\" \"npm run react-dev\"",
-    "react-dev": "vite",
-    "electron-dev": "wait-on http://localhost:5173 && electron .",
-    "build": "npm run build-react && npm run build-electron",
-    "build-react": "vite build",
-    "build-electron": "tsc",
-    "pack": "electron-builder --dir",
-    "dist": "npm run build && electron-builder"
+    "dev": "electron ."
   },
-  "dependencies": {
-    "axios": "^1.6.0",
-    "canvas": "^2.11.2",
-    "electron-squirrel-startup": "^1.1.1",
-    "opencv4nodejs": "^5.11.0",
-    "sharp": "^0.33.0",
-    "tensorflow": "^4.11.0",
-    "tensorflow-models": "^0.0.0",
-    "tfjs-coco-ssd": "^2.2.3"
-  },
+  "keywords": [
+    "electron",
+    "image-editor",
+    "ai",
+    "canvas"
+  ],
+  "author": "AI Developer",
+  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "@vitejs/plugin-react": "^4.2.0",
-    "concurrently": "^8.2.0",
-    "electron": "^28.0.0",
-    "electron-builder": "^24.6.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.3.0",
-    "vite": "^5.0.0",
-    "wait-on": "^7.0.1"
-  },
-  "build": {
-    "appId": "com.aimageeditor.studio",
-    "productName": "AI Image Editor Studio",
-    "files": [
-      "dist/**/*",
-      "dist/main.js",
-      "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    }
+    "electron": "^28.0.0"
   }
 }
